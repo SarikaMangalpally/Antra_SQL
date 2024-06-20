@@ -168,3 +168,9 @@ inner join Employees em on e.Title = em.Title
 where e.EmployeeID < em.EmployeeID
 
 --26. Display all the Managers who have more than 2 employees reporting to them.
+select m.EmployeeID, count(em.EmployeeID) 'Employees Reporting'
+from Employees m
+join Employees em on m.EmployeeID = em.ReportsTo
+where m.EmployeeID > 2
+GROUP BY m.EmployeeID
+ORDER BY 'Employees Reporting' DESC
