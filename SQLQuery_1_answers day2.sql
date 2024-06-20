@@ -174,3 +174,19 @@ join Employees em on m.EmployeeID = em.ReportsTo
 where m.EmployeeID > 2
 GROUP BY m.EmployeeID
 ORDER BY 'Employees Reporting' DESC
+
+--27. Display the customers and suppliers by city. The results should have the following columns
+-- City
+
+-- Name
+
+-- Contact Name,
+
+-- Type (Customer or Supplier)
+
+SELECT CompanyName, ContactName, City, 'Customer' Type
+from customers c
+UNION ALL
+SELECT CompanyName, ContactName, City, 'Supplier' Type
+from suppliers s
+ORDER BY city
